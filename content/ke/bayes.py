@@ -114,10 +114,16 @@ def spamTest():
         classList.append(0)
     vocabList = createVocabList(docList)#create vocabulary
     trainingSet = list(range(50)); testSet=[]           #create test set
+    # print("trainingSet in random before:");
+    # print(trainingSet)
     for i in range(10):
         randIndex = int(random.uniform(0,len(trainingSet)))
         testSet.append(trainingSet[randIndex])
-        del(trainingSet[randIndex])  
+        del(trainingSet[randIndex]) 
+    print("trainingSet in random after:");
+    print(trainingSet)  
+    print("testSet in random after:");
+    print(testSet)    
     trainMat=[]; trainClasses = []
     for docIndex in trainingSet:#train the classifier (get probs) trainNB0
         trainMat.append(bagOfWords2VecMN(vocabList, docList[docIndex]))
